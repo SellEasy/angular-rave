@@ -32,7 +32,7 @@ export class AngularRaveDirective {
   @Input() PBFPubKey: string;
   @Input() raveOptions: Partial<PrivateRaveOptions> = {};
   @Input() redirect_url: string;
-  @Input() subaccount: { id: string, transaction_split_ratio: string }[];
+  @Input() subaccounts: { id: string, transaction_split_ratio: string }[];
   @Input() txref: string;
   @Output() onclose: EventEmitter<void> = new EventEmitter<void>();
   @Output() callback: EventEmitter<any> = new EventEmitter<any>();

@@ -87,7 +87,7 @@ export interface RaveOptions {
    * Subaccounts to split payment with
    * https://developer.flutterwave.com/v2.0/docs/split-payment
    */
-  subaccount?: { id: string, transaction_split_ratio: string }[];
+  subaccounts?: { id: string, transaction_split_ratio: string }[];
 }
 
 export interface PrivateRaveOptions extends RaveOptions {

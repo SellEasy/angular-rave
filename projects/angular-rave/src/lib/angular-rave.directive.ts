@@ -75,12 +75,7 @@ export class AngularRaveDirective {
   insertRaveOptions(object: Partial<RaveOptions>) {
     this._raveOptions = this.raveService.createRaveOptionsObject(object);
     if (this.onclose) { this._raveOptions.onclose = () => this.onclose.emit(); }
-    this._raveOptions.callback = (res) => {
-      this.onclose.emit(res);
-      if (this.autoClose) {
-        this.paymentSetup.close();
-      }
-    };
+    if (this.callback) { this._raveOptions.callback = res => this.callback.emit(res); }
   }
 
 }

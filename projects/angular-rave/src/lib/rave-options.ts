@@ -1,3 +1,5 @@
+import { chargeType } from './charge-type';
+
 export interface RaveOptions {
   /**
    * Your merchant public key provided when you create a button
@@ -51,6 +53,16 @@ export interface RaveOptions {
    * This allows you select the payment option you want for your users, possible values are card, account or both
    */
   payment_method?: string;
+
+  /**
+   * This is the plan to use for a recurring payment 
+   */
+  payment_plan?: number;
+
+  /**
+   * This specifies  the frequency of a reccuring charge 
+   */
+  charge_type?: chargeType;
 
   /**
    * This allows you to select the payment option you want for your users.

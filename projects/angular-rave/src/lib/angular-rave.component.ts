@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
 import { PrivateRaveOptions, PaymentSetup, RaveOptions } from './rave-options';
 import { AngularRaveService } from './angular-rave.service';
+import { chargeType } from './charge-type';
 
 interface MyWindow extends Window {
   getpaidSetup: (raveOptions: Partial<PrivateRaveOptions>) => PaymentSetup;
@@ -31,6 +32,8 @@ export class AngularRaveComponent implements OnInit {
   @Input() payment_method: string;
   @Input() payment_options: string;
   @Input() PBFPubKey: string;
+  @Input() charge_type:chargeType;
+  @Input() payment_plan: number;
   @Input() raveOptions: Partial<PrivateRaveOptions>;
   @Input() redirect_url: string;
   @Input() subaccounts: { id: string, transaction_split_ratio: string }[];

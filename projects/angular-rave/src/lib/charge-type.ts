@@ -1,0 +1,1 @@
+export type chargeType = 'recurring-daily'| 'recurring-weekly'|'recurring-monthly'|'recurring-quarterly'|'recurring-bianually'|'recurring-anually';

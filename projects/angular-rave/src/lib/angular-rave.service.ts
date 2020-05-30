@@ -39,6 +39,8 @@ export class AngularRaveService {
     if (obj.custom_title) { raveOptions.custom_title = obj.custom_title; }
     if (obj.customer_firstname) { raveOptions.customer_firstname = obj.customer_firstname; }
     if (obj.subaccounts) { raveOptions.subaccounts = obj.subaccounts; }
+    if (obj.charge_type) { raveOptions.charge_type = obj.charge_type; }
+    if (obj.payment_plan) {raveOptions.payment_plan = obj.payment_plan;}
     if (obj.customer_lastname) { raveOptions.customer_lastname = obj.customer_lastname; }
     if (obj.txref) { raveOptions.txref = obj.txref; }
     if (obj.customer_phone) { raveOptions.customer_phone = obj.customer_phone; }

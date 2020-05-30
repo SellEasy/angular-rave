@@ -2,6 +2,7 @@ import { Directive, Input, Output, HostListener, EventEmitter } from '@angular/c
 
 import { PrivateRaveOptions, PaymentSetup, RaveOptions } from './rave-options';
 import { AngularRaveService } from './angular-rave.service';
+import { chargeType } from './charge-type';
 
 interface MyWindow extends Window {
   getpaidSetup: (raveOptions: Partial<PrivateRaveOptions>) => PaymentSetup;
@@ -29,6 +30,8 @@ export class AngularRaveDirective {
   @Input() pay_button_text: string;
   @Input() payment_method: string;
   @Input() payment_options: string;
+  @Input() charge_type:chargeType;
+  @Input() payment_plan: number;
   @Input() PBFPubKey: string;
   @Input() raveOptions: Partial<PrivateRaveOptions> = {};
   @Input() redirect_url: string;
@@ -79,3 +82,4 @@ export class AngularRaveDirective {
   }
 
 }
+

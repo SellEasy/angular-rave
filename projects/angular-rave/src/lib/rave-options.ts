@@ -132,7 +132,11 @@ export interface RaveRootOptions {
    * Used to determing what script to load. Set to false when using a test public key.
    * Default: `false`
    */
-  isTest ?: boolean;
+  isTest?: boolean;
+  /**
+   * Some mobile envs do not interpret relative URLs correctly. To provide a full URL path, pass URL protocol
+   */
+  protocol?: string;
 }
 
 

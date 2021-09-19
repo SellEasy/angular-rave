@@ -1,6 +1,6 @@
-import { Injectable, Inject } from '@angular/core';
+import { Injectable, Inject, Optional } from '@angular/core';
 import { PrivateRaveOptions, RaveOptions } from './rave-options';
-import { PBFPUBKEY_TOKEN, ENVIRONMENT_TOKEN } from './angular-rave-token';
+import { PBFPUBKEY_TOKEN, ENVIRONMENT_TOKEN, PROTOCOL_TOKEN } from './angular-rave-token';
 
 interface MyWindow extends Window {
   getpaidSetup: (raveOptions: Partial<PrivateRaveOptions>) => void;
@@ -19,6 +19,7 @@ export class AngularRaveService {
   constructor(
     @Inject(PBFPUBKEY_TOKEN) private PBFPubKey: string,
     @Inject(ENVIRONMENT_TOKEN) private isDev: boolean,
+    @Optional() @Inject(PROTOCOL_TOKEN) private protocol: string
   ) { }
 
   createRaveOptionsObject(obj: Partial<PrivateRaveOptions>): Partial<PrivateRaveOptions> {
@@ -60,7 +61,10 @@ export class AngularRaveService {
         resolve();
       };
       script.addEventListener('load', onLoadFunc);
-      const url = this.isDev ? DEV_URL : PROD_URL;
+
+      const devUrl = this.protocol ? `${this.protocol}${DEV_URL}` : DEV_URL;
+      const prodUrl = this.protocol ? `${this.protocol}${PROD_URL}` : PROD_URL
+      const url = this.isDev ? devUrl : prodUrl;
       script.setAttribute('src', url);
     });
   }

@@ -10,6 +10,7 @@ import { AngularRaveModule } from 'angular-rave';
     AngularRaveModule.forRoot({
       key: 'FLWPUBK_TEST-ccf7c01dd5d4e69db74608b8c3a09499-X',
       isTest: true,
+      protocol: location.protocol
     }),
   ],
   declarations: [
